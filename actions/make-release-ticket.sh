@@ -31,7 +31,7 @@ echo "[INFO] End format release commits string"
 # отправляем запрос
 echo "[INFO] Start post request to release ticket"
 TICKET_TITLE='{"summary": "Релиз '"$CURRENT_TAG"' - '$(date +%d/%m/%Y)'", "description": "Ответственный за релиз: '$TAG_AUTHOR'\n\n Коммиты, попавшие в релиз:\n'$RESULT_ONE_LINE'"}'
-curl -X PATCH https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-161/ -H "Authorization: OAuth $OAUTH_TOKEN" -H "X-Org-ID: $X_ORG_ID" -H "Content-type: application/json" -d "$TICKET_TITLE"
+curl -X PATCH https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-134/ -H "Authorization: OAuth $OAUTH_TOKEN" -H "X-Org-ID: $X_ORG_ID" -H "Content-type: application/json" -d "$TICKET_TITLE"
 if [ "$?" != "0" ]; then
   echo "[ERROR] Failed post request to release ticket" >&2
   exit 1
